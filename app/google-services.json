@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "441201864216",
+    "firebase_url": "https://invenapp-f8264.firebaseio.com",
+    "project_id": "invenapp-f8264",
+    "storage_bucket": "invenapp-f8264.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441201864216:android:b76b311dc543976733dd6d",
+        "android_client_info": {
+          "package_name": "com.example.tablayout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441201864216-k672vcv14riolc2vl622etkce613tdqp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tablayout",
+            "certificate_hash": "6d0edd4fb84cd8516074053e7f73361a13385a81"
+          }
+        },
+        {
+          "client_id": "441201864216-ttgujha0qg7u1tm35qqhd96cl3du0jnr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeZws5AxIAyuvR2oVoQ82usRbz4zC8RJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441201864216-ttgujha0qg7u1tm35qqhd96cl3du0jnr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

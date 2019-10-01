@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.google.android.material.textfield.TextInputEditText;
+
 import com.google.zxing.Result;
 
 import org.w3c.dom.Text;
@@ -58,6 +59,8 @@ public class AddingItem extends AppCompatActivity{
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 Intent intent = new Intent(context,Scanner.class);
                 startActivity(intent);
             }

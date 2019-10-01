@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
+
 public class Login extends AppCompatActivity {
     Button b,r;
     Context context;
@@ -15,6 +17,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         b=findViewById(R.id.logbtn);
         r=findViewById(R.id.regbtn);
         r.setOnClickListener(new View.OnClickListener() {

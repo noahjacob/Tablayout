@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".AddingItem">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:background="@color/primaryColor"
+        android:id="@+id/toolbar"
+        app:title="AddItem"
+        app:titleTextColor="@color/primaryTextColor"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+
+        android:layout_height="wrap_content">
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50px"
+        android:id="@+id/save"
+        android:padding="50dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Item Name"
+            android:id="@+id/Item_name"
+            android:textSize="20dp"
+            android:textColorHighlight="@color/primaryDarkColor"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Description"
+            android:id="@+id/Desc"
+            android:textSize="20dp"
+            android:textColorHighlight="@color/primaryDarkColor"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/prodid"
+                android:paddingBottom="20dp"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Enter Product Id"
+                    android:textSize="20dp"
+                    android:id="@+id/add_productId"
+                    android:textColorHighlight="@color/primaryDarkColor"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/barcode_scan"
+                android:layout_marginLeft="12dp"
+                android:id="@+id/barcode"
+                android:layout_gravity="center"
+                />
+
+
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:paddingBottom="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/quant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Quantity"
+                android:textColorHighlight="@color/primaryDarkColor"
+                android:textSize="20dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:backgroundTint="@color/primaryLightColor"-->
+        <!--android:text="Add"-->
+        <!--android:textColor="@color/primaryTextColor"-->
+        <!--android:layout_marginTop="400dp"-->
+        <!--android:layout_marginLeft="50dp"-->
+        <!--android:layout_marginRight="50dp"-->
+        <!--/>-->
+
+
+
+</RelativeLayout>

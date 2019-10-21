@@ -1,26 +1,33 @@
 package com.example.tablayout;
 
 public class Items {
-    private String Name;
-    private String Desc;
-    private int Count;
+    private String name;
+    private String desc,id;
+    private int count;
+    public Items(){
+
+    }
+
+    public Items(String Name, String Desc, int Count,String id) {
+        this.count = Count;
+        this.desc = Desc;
+        this.name = Name;
+        this.id = id;
+    }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getDesc() {
-        return Desc;
+        return desc;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public int getCount() {
-        return Count;
+        return count;
     }
-
-    public Items(String Name, String Desc, int Count) {
-        this.Count = Count;
-        this.Desc = Desc;
-        this.Name = Name;
-    }
-
 }

@@ -23,7 +23,7 @@
             android:layout_alignParentStart="true"
             android:ellipsize="end"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:id="@+id/text_name"
+            android:id="@+id/text_item"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -38,30 +38,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Description"
-            android:layout_below="@+id/text_name"
+            android:layout_below="@+id/text_item"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_marginLeft="4dp"
             android:maxLines="1"
             android:layout_alignParentStart="true"
             android:ellipsize="end"
 
-            android:id="@+id/Desc"
+            android:id="@+id/text_Desc"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ID"
-            android:layout_below="@+id/Desc"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_marginLeft="4dp"
+            android:text="Date:"
+            android:layout_below="@+id/text_id"
+            android:maxLines="1"
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"
+
+            android:id="@+id/text_date"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID:"
+            android:layout_below="@+id/text_Desc"
             android:maxLines="1"
             android:layout_alignParentStart="true"
             android:ellipsize="end"
 
             android:id="@+id/text_id"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location:"
+            android:layout_below="@+id/text_date"
+            android:maxLines="1"
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"
 
-
+            android:id="@+id/text_loc"
+            />
 
 
     </RelativeLayout>

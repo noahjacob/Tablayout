@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".inadd">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:background="@color/primaryColor"
+        android:id="@+id/toolbar"
+        app:title="Item Details"
+        app:titleTextColor="@color/primaryTextColor"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+
+        android:layout_height="wrap_content">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:textSize="25dp"
+        android:id="@+id/iname"
+        android:text="Item Name: "
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/iname"
+        android:layout_marginLeft="25dp"
+        android:textSize="22dp"
+        android:text="Name"
+        android:id="@+id/name"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:textSize="25dp"
+        android:id="@+id/totin"
+        android:text="Total OUT: "
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/totoutv"
+        android:textSize="25dp"
+        android:id="@+id/loc"
+        android:text="Location "
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/totoutv"
+        android:layout_below="@+id/totin"
+        android:layout_marginLeft="25dp"
+        android:textSize="22dp"
+        android:text="Value"
+
+        />
+
+</RelativeLayout>

@@ -4,6 +4,7 @@ package com.example.tablayout;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -53,21 +55,21 @@ public class IncomingFragment extends Fragment implements ExampleDialog.ExampleD
         user_id = FirebaseAuth.getInstance().getUid();
         View view = inflater.inflate(R.layout.fragment_incoming, container, false);
         FloatingActionButton fab = view.findViewById(R.id.fab);
-        FloatingActionButton d = view.findViewById(R.id.dialog);
+        
 
 
 
 
-        d.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ExampleDialog dialog = new ExampleDialog();
-                dialog.setTargetFragment(IncomingFragment.this, 0);
-                dialog.show(requireActivity().getSupportFragmentManager(), null);
-
-
-            }
-        });
+//        d.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ExampleDialog dialog = new ExampleDialog();
+//                dialog.setTargetFragment(IncomingFragment.this, 0);
+//                dialog.show(requireActivity().getSupportFragmentManager(), null);
+//
+//
+//            }
+//        });
         setUpRecyclerview(view);
 
         fab.setOnClickListener(new View.OnClickListener(){
@@ -116,6 +118,27 @@ public class IncomingFragment extends Fragment implements ExampleDialog.ExampleD
         menu.clear();
         inflater.inflate(R.menu.incoming,menu);
     }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.signout) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getContext(), Login.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+
+
+            return true;
+        }
+        else{
+            ExampleDialog dialog = new ExampleDialog();
+            dialog.setTargetFragment(IncomingFragment.this, 0);
+            dialog.show(requireActivity().getSupportFragmentManager(), null);
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onStart() {
@@ -134,6 +157,7 @@ public class IncomingFragment extends Fragment implements ExampleDialog.ExampleD
     public void applyTexts(int to, int from) {
         To=to;
         From = from;
+        Log.d("Test","Is this working?");
         Log.d("Dates", String.valueOf(To)+From);
         Bundle bundle = new Bundle();
         bundle.putInt("to",To);

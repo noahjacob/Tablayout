@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="FROM"
+        android:text="Store 1"
+        android:id="@+id/Location"
+        android:layout_height="wrap_content">
+
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_below="@+id/Location"
+        android:hint="FROM"
+        android:text="20191010"
+        android:id="@+id/from"
+        android:layout_height="wrap_content">
+
+    </EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="TO"
+        android:text="20191030"
+        android:layout_below="@id/from"
+        android:layout_marginTop="6dp"
+        android:id="@+id/to">
+
+    </EditText>
+
+</RelativeLayout>

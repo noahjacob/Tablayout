@@ -17,7 +17,7 @@
         android:background="@color/primaryColor"
 
         app:popupTheme="@style/Theme.AppCompat.Light"
-        app:title="Inventory"
+        app:title="Incoming"
         android:id="@+id/toolbar">
 
     </androidx.appcompat.widget.Toolbar>

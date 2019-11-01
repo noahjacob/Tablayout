@@ -66,7 +66,7 @@ public class outadd extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                Intent intent = new Intent(outadd.this, Scanner.class);
+                Intent intent = new Intent(outadd.this, Scanner3.class);
                 startActivity(intent);
             }
         });
@@ -110,37 +110,58 @@ public class outadd extends AppCompatActivity {
     }
 
     public void saveIn(View v) {
-        String Name = ename.getText().toString();
-        int Date = Integer.valueOf(edate.getText().toString());
+        final String Name = ename.getText().toString();
+        final int Date = Integer.valueOf(edate.getText().toString());
         final int Quant = Integer.valueOf(equant.getText().toString());
-        String loc = eloc.getText().toString();
-        String Desc = edesc.getText().toString();
-        String id = productId.getText().toString();
+        final String loc = eloc.getText().toString();
+        final String Desc = edesc.getText().toString();
+        final String id = productId.getText().toString();
 
         final CollectionReference Itemref =  db.collection("Inventory").document(user_id).collection("Items");
         Itemref.whereEqualTo("id",id).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                String name;
+                String desc;
                 for(QueryDocumentSnapshot document :task.getResult()){
                     int snapcount = Integer.valueOf(document.get("count").toString());
-                    if (Quant>snapcount){
+                    Items out = document.toObject(Items.class);
+
+
+
+
+                    if (Quant>out.getCount()||Quant-out.getCount()==0){
                         Toast.makeText(outadd.this, "Insufficient stock", Toast.LENGTH_SHORT).show();
                     }
                     else{
                         Map<Object, Integer> map = new HashMap<>();
                         map.put("count",snapcount-Quant );
-                        Log.d("map", String.valueOf(map));
-                        Log.d("snapcount", String.valueOf(snapcount));
+
+                        name=out.getName();
+                        desc = out.getDesc();
+                        Log.d("Name", String.valueOf(document.get("name")));
                         Itemref.document(document.getId()).set(map,SetOptions.merge());
+                        db.collection("Inventory").document(user_id).collection("Outgoing")
+                                .add(new Initem(name,desc,Quant,loc,id,Date));
+                        db.collection("Inventory").document(user_id).collection("TotalOut")
+                                .add(new Initem(Name,Desc,Quant,loc,id,Date));
+                        Toast.makeText(outadd.this, "Added to database", Toast.LENGTH_SHORT).show();
 
                     }
                 }
 
             }
         });
-        db.collection("Inventory").document(user_id).collection("Outgoing")
-                .add(new Initem(Name,Desc,Quant,loc,id,Date));
-        Toast.makeText(outadd.this, "Added to database", Toast.LENGTH_SHORT).show();
-        finish();
+
+
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent data = getIntent();
+        String Id = data.getStringExtra("prodId");
+        if(Id!=null)
+            productId.setText(Id);
+
     }
 }

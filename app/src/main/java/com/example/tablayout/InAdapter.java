@@ -74,7 +74,7 @@ public class InAdapter extends FirestoreRecyclerAdapter<Initem,InAdapter.itemhol
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         for (QueryDocumentSnapshot document : task.getResult()){
                             int itemcount = Integer.valueOf(document.get("count").toString());
-                            if(itemcount-snapcount==0){
+                            if(itemcount-snapcount<=0){
                                 ref.document(document.getId()).delete();
                                 snapref.delete();
 

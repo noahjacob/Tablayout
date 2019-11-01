@@ -2,8 +2,10 @@ package com.example.tablayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -36,6 +38,7 @@ import java.util.Map;
 
 public class inadd extends AppCompatActivity {
     DatePickerDialog picker;
+    private Context context;
     private EditText edate,edesc,eloc,equant;
     Button Send;
     private EditText productId;
@@ -63,12 +66,15 @@ public class inadd extends AppCompatActivity {
         edate=findViewById(R.id.date);
         edate.setInputType(InputType.TYPE_NULL);
 
+
+
+
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                Intent intent = new Intent(inadd.this,Scanner.class);
+                Intent intent = new Intent(inadd.this,Scanner2.class);
                 startActivity(intent);
             }
         });
@@ -119,9 +125,9 @@ public class inadd extends AppCompatActivity {
 
     public void saveIn(View v){
         final String Name = ename.getText().toString();
-        int Date = Integer.valueOf(edate.getText().toString());
+        final int Date = Integer.valueOf(edate.getText().toString());
         final int Quant = Integer.valueOf(equant.getText().toString());
-        String loc = eloc.getText().toString();
+        final String loc = eloc.getText().toString();
         final String Desc = edesc.getText().toString();
         final String id = productId.getText().toString();
         final int[] realcount = {0};
@@ -137,6 +143,10 @@ public class inadd extends AppCompatActivity {
                             if (documentSnapshot.isEmpty()) {
                                 db.collection("Inventory").document(user_id).collection("Items")
                                         .add(new Items(Name, Desc, Quant, id));
+                                db.collection("Inventory").document(user_id).collection("Incoming")
+                                        .add(new Initem(Name,Desc,Quant,loc,id,Date));
+                                db.collection("Inventory").document(user_id).collection("TotalIncoming")
+                                        .add(new Initem(Name,Desc,Quant,loc,id,Date));
                                 Toast.makeText(inadd.this, "Added to database", Toast.LENGTH_SHORT).show();
                                 finish();
 
@@ -149,6 +159,13 @@ public class inadd extends AppCompatActivity {
                                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                                     ename.setText(document.get("name").toString());
                                                     edesc.setText(document.get("desc").toString());
+                                                    Items item = document.toObject(Items.class);
+                                                    String itemname = item.getName();
+                                                    int Count = item.getCount()+Quant;
+                                                    String Id = item.getId();
+
+                                                    String idesc = item.getDesc();
+
 
                                                     realcount[0] = Integer.valueOf(document.get("count").toString());
                                                     Log.d("item count inside", String.valueOf(realcount[0]));
@@ -159,6 +176,11 @@ public class inadd extends AppCompatActivity {
                                                     db.collection("Inventory").document(user_id)
                                                             .collection("Items")
                                                     .document(document.getId()).set(map, SetOptions.merge());
+                                                    db.collection("Inventory").document(user_id).collection("Incoming")
+                                                            .add(new Initem(itemname,idesc,Quant,loc,Id,Date));
+                                                    db.collection("Inventory").document(user_id).collection("TotalIncoming")
+                                                            .add(new Initem(itemname,idesc,Quant,loc,id,Date));
+                                                    Toast.makeText(inadd.this, "Added to database", Toast.LENGTH_SHORT).show();
 
                                                 }
                                             }
@@ -173,9 +195,8 @@ public class inadd extends AppCompatActivity {
                     }
 
                 });
-        db.collection("Inventory").document(user_id).collection("Incoming")
-               .add(new Initem(Name,Desc,Quant,loc,id,Date));
-        Toast.makeText(inadd.this, "Added to database", Toast.LENGTH_SHORT).show();
+
+
 
         Log.d("Incoming", String.valueOf(Quant));
         Log.d("item count", String.valueOf(realcount[0]));

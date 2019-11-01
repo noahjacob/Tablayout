@@ -14,7 +14,7 @@
         app:title="Incoming"
         app:titleTextColor="@color/primaryTextColor"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:navigationIcon="?attr/homeAsUpIndicator"
+
 
         android:layout_height="wrap_content">
 

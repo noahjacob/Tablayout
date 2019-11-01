@@ -53,6 +53,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
     public void changepage(String data){
         Intent intent = new Intent(this,AddingItem.class);
         intent.putExtra("prodId",data);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 }

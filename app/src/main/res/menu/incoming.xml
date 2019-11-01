@@ -3,14 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-
+        android:icon="@drawable/ic_search_black_24dp"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        android:id="@+id/incoming"
-        android:orderInCategory="2"
-        android:title="Incoming"
+        android:id="@+id/filter"
+        android:orderInCategory="1"
+        android:title="Filter by Date"
         app:showAsAction="never"
         />
-
+    <item
+        android:icon="@drawable/ic_search_black_24dp"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        android:id="@+id/signout"
+        android:orderInCategory="2"
+        android:title="SignOut"
+        app:showAsAction="never"
+        />
 
 
 

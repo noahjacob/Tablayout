@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".incoming_filter"></activity>
+        <activity android:name=".totaloutfilter"></activity>
+        <activity android:name=".outfilter" />
+        <activity android:name=".totalinfilter" />
+        <activity android:name=".incoming_filter" />
         <activity android:name=".outadd" />
         <activity android:name=".inadd" />
         <activity android:name=".Login">
@@ -21,11 +24,13 @@
         </activity>
         <activity android:name=".Register" />
         <activity android:name=".Scanner" />
+        <activity android:name=".Scanner2" />
+        <activity android:name=".Scanner3" />
         <activity android:name=".AddingItem" />
         <activity android:name=".MainActivity" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

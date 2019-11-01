@@ -90,6 +90,7 @@ public class AddingItem extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 saveIn(view);
+
             }
         });
 
@@ -115,7 +116,10 @@ public class AddingItem extends AppCompatActivity{
                                 db.collection("Inventory").document(user_id).collection("Items")
                                         .add(new Items(Name, Desc, Quant, id));
                                 Toast.makeText(AddingItem.this, "Added to database", Toast.LENGTH_SHORT).show();
-                                finish();
+                                Intent i =new Intent(AddingItem.this,Home.class);
+                                startActivity(i);
+
+
 
                             } else {
                                 db.collection("Inventory").document(user_id).collection("Items")
@@ -131,7 +135,7 @@ public class AddingItem extends AppCompatActivity{
                                                 }
                                             }
                                         });
-                                Toast.makeText(AddingItem.this, "Document Exist!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AddingItem.this, "Item Already Exist!", Toast.LENGTH_SHORT).show();
                             }
 
                         }
